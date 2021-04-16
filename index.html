@@ -1,15 +1,768 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>任述锋</title>
+  <title></title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100px;
+      height: 400px;
+      margin: 100px auto;
+      background-color: #DEEBFB;
+      position: relative;
+    }
+
+    .husky-ear1,
+    .husky-ear2,
+    .husky-face,
+    .husky-buttock div,
+    .unmove-tail,
+    .tail1,
+    .tail2,
+    .tail3,
+    .tail4,
+    .tail5,
+    .tail6,
+    .tail7,
+    .tail8 {
+      background-color: #3E3B4B;
+    }
+
+    .husky-head {
+      box-shadow: 19px 10px 13px rgba(0, 0, 0, 0.3);
+      width: 165px;
+      height: 160px;
+    }
+
+    .husky-ear1,
+    .husky-ear2 {
+      width: 45px;
+      height: 50px;
+      position: absolute;
+
+    }
+
+    .husky-ear1 {
+      border-top-left-radius: 85% 100%;
+      border-top-right-radius: 15% 100%;
+      transform: rotate(-65deg);
+      animation: ear1 2s 100;
+    }
+
+    .husky-ear2 {
+      left: 155px;
+      border-top-right-radius: 85% 100%;
+      border-top-left-radius: 15% 100%;
+      transform: rotate(65deg);
+      animation: ear2 2s 100;
+    }
+
+    @keyframes ear1 {
+      0% {
+        transform: rotate(-65deg) translate(0);
+      }
+
+      50% {
+        transform: rotate(-83deg) translate(-10px, 5px);
+      }
+
+      100% {
+        transform: rotate(-65deg) translate(0);
+      }
+    }
+
+    @keyframes ear2 {
+      0% {
+        transform: rotate(65deg) translate(0);
+      }
+
+      50% {
+        transform: rotate(83deg) translate(10px, 5px);
+      }
+
+      100% {
+        transform: rotate(65deg) translate(0);
+      }
+    }
+
+    .cochlear1,
+    .cochlear2 {
+      width: 25px;
+      height: 20px;
+      position: absolute;
+      top: 20px;
+      background-color: #C5736A;
+    }
+
+    .cochlear1 {
+      right: 10px;
+      border-top-right-radius: 85% 100%;
+      border-top-left-radius: 15% 100%;
+      transform: rotate(-88deg);
+    }
+
+    .cochlear2 {
+      left: 10px;
+      border-top-left-radius: 85% 100%;
+      border-top-right-radius: 15% 100%;
+      transform: rotate(88deg);
+    }
+
+    .husky-face {
+      position: absolute;
+      top: 0px;
+      left: 25px;
+      width: 150px;
+      height: 167px;
+
+      border-top-right-radius: 75% 67%;
+      border-top-left-radius: 75% 67%;
+    }
+
+    .eye1,
+    .eye2 {
+      position: absolute;
+      top: 30px;
+      width: 43px;
+      height: 42px;
+      background-color: #fff;
+      border-top-left-radius: 80% 80%;
+      border-top-right-radius: 80% 80%;
+      z-index: 10;
+    }
+
+    .eye1 {
+      left: 35px;
+      transform: rotate(-10deg);
+    }
+
+    .eye2 {
+      right: 35px;
+      transform: rotate(10deg);
+    }
+
+    .eye1 .husky-eye1,
+    .eye2 .husky-eye2 {
+      position: absolute;
+      top: 21px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: #6B7C84;
+    }
+
+    .eye1 .husky-eye1 {
+      left: 23px;
+      /*animation: eye1 2s infinite;*/
+    }
+
+    .eye2 .husky-eye2 {
+      right: 23px;
+    }
+
+    html:hover .husky-eye1,
+    html:hover .husky-eye2 {
+      left: 25px;
+    }
+
+    .cheek {
+      position: absolute;
+      top: 68px;
+      left: 7px;
+      width: 138px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 40%;
+      transition: all 1s;
+    }
+
+    body:hover .cheek {
+      /*left: 8px;*/
+      animation: cheek 1s
+    }
+
+    @keyframes cheek {
+      0% {
+        transform: translate(0);
+      }
+
+      50% {
+        transform: translateX(1.5px);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    .husky-nose {
+      position: absolute;
+      top: -11px;
+      left: 51px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #3F3E44;
+      z-index: 9;
+    }
+
+    body:hover .smile-lip {
+      width: 82px;
+      height: 50px;
+      background-color: #fff;
+      position: absolute;
+      top: 22px;
+      right: 20%;
+
+      z-index: 7;
+    }
+
+    body:hover .left-lip1,
+    body:hover .right-lip1 {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #3F3E44;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      border-left: none;
+      border-top: none;
+      border-right: none;
+      transition: all 1s;
+      z-index: 999;
+    }
+
+    body:hover .left-lip1 {
+      right: 49%;
+    }
+
+    body:hover .right-lip1 {
+      left: 49%;
+    }
+
+    body:hover .husky-tongue {
+      position: absolute;
+      width: 25px;
+      height: 60px;
+      border-bottom-right-radius: 45%;
+      border-bottom-left-radius: 45%;
+      background-color: #C87273;
+      top: -15px;
+      left: 31%;
+      /*transform :translateY(25px);*/
+      transition: all 0.3s ease-in 1s;
+      z-index: 998;
+      animation: tougue 3s 1s 3;
+    }
+
+    @keyframes tougue {
+      0% {
+        transform: rotate(0) translateY(0);
+      }
+
+      50% {
+        transform: rotate(10deg) translateY(10px);
+      }
+
+      100% {
+        transform: rotate(0) translate(0);
+      }
+    }
+
+
+    .husky-lips .unsmile-lips {
+      width: 80px;
+      height: 25px;
+      background-color: #fff;
+      position: absolute;
+      top: 44px;
+      left: 20%;
+      z-index: 2;
+    }
+
+    .left-lip2,
+    .right-lip2 {
+      width: 25px;
+      height: 25px;
+      border: 2px solid #3F3E44;
+      background-color: #fff;
+      border-radius: 50%;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      position: absolute;
+      top: -12px;
+    }
+
+    .husky-lips .left-lip2 {
+      left: 49%;
+    }
+
+    .husky-lips .right-lip2 {
+      right: 49%;
+    }
+
+
+    .husky-body {
+      box-shadow: 20px 10px 13px rgba(0, 0, 0, 0.3);
+      width: 150px;
+      height: 183px;
+      position: relative;
+
+    }
+
+    .husky-scarf .scarf1,
+    .husky-scarf .scarf2,
+    .husky-scarf .scarf3 {
+      position: absolute;
+      background-color: #FFFFFF;
+      /*border:1px solid #000;*/
+      z-index: 100;
+    }
+
+    .husky-scarf .scarf1 {
+      top: -7px;
+      left: 15px;
+      width: 168px;
+      height: 50px;
+      border-top-left-radius: 40%;
+      border-top-right-radius: 30% 88%;
+      border-bottom-left-radius: 80%;
+      border-bottom-right-radius: 80%;
+    }
+
+    .husky-scarf .scarf2 {
+      top: 26px;
+      left: 52px;
+      width: 80px;
+      height: 40px;
+      transform: rotate(36deg);
+    }
+
+    .husky-scarf .scarf3 {
+      top: 2px;
+      left: 120px;
+      width: 47px;
+      height: 100px;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 30%;
+      transform: rotate(45deg);
+    }
+
+    .husky-left-leg div,
+    .husky-right-leg div {
+      width: 47px;
+      height: 138px;
+      position: absolute;
+      background-color: #BFC5D1;
+      top: 60px;
+      /*border: 1px solid #000;*/
+      border-bottom-right-radius: 5%;
+      border-bottom-left-radius: 5%;
+      z-index: 98;
+    }
+
+    .husky-left-leg .left-leg1 {
+      left: 58px;
+    }
+
+    .husky-left-leg .left-leg2 {
+      left: 58px;
+      transform-origin: left bottom;
+      transform: rotate(-10deg);
+    }
+
+    .husky-right-leg .right-leg1 {
+      left: 105px;
+      background-color: #A5ADB8;
+    }
+
+    .husky-right-leg .right-leg2 {
+      background-color: #A5ADB8;
+      left: 105px;
+      transform-origin: right bottom;
+      transform: rotate(10deg);
+    }
+
+    .husky-buttock div {
+      position: absolute;
+
+      /*border:1px solid #fff;*/
+    }
+
+    .husky-buttock div:nth-child(1) {
+      width: 67px;
+      height: 67px;
+      top: 13px;
+      left: 38px;
+      transform-origin: right bottom;
+      transform: rotate(-13deg);
+      z-index: 99;
+    }
+
+    .husky-buttock div:nth-child(2) {
+      width: 67px;
+      height: 67px;
+      top: 23px;
+      left: 104px;
+      transform-origin: right bottom;
+      transform: rotate(13deg);
+      border-top-right-radius: 40%;
+      z-index: 99;
+    }
+
+    .husky-buttock div:nth-child(3) {
+      width: 110px;
+      height: 80px;
+      top: 118px;
+      left: -37px;
+    }
+
+    .husky-buttock div:nth-child(4) {
+      width: 110px;
+      height: 130px;
+      top: 27px;
+      left: 22px;
+      transform-origin: left top;
+      transform: rotate(43deg);
+      /*border-top-right-radius: 40%;*/
+    }
+
+    .husky-buttock div:nth-child(5) {
+      width: 110px;
+      height: 130px;
+      top: 68px;
+      left: -75px;
+      border-top-left-radius: 65% 75%;
+      border-bottom-left-radius: 40% 60%;
+    }
+
+    .husky-Hind-leg {
+      position: absolute;
+      width: 80px;
+      height: 35px;
+      top: 163px;
+      left: -40px;
+      background-color: #A6ACB8;
+      border-top-right-radius: 70% 100%;
+      border-top-left-radius: 75% 100%;
+      z-index: 96;
+    }
+
+    .husky-right-leg:before,
+    .husky-right-leg:after,
+    .husky-Hind-leg:before,
+    .husky-Hind-leg:after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 10px;
+      /*border: 1px solid #000;*/
+      background-color: #3C3B46;
+    }
+
+    .husky-Hind-leg:after {
+      top: 24px;
+      left: 42px;
+    }
+
+    .husky-Hind-leg:before {
+      top: 24px;
+      left: 58px;
+    }
+
+    .husky-right-leg:before {
+      top: 187px;
+      left: 115px;
+      z-index: 101;
+    }
+
+    .husky-right-leg:after {
+      top: 187px;
+      left: 129px;
+      z-index: 101;
+    }
+
+
+
+
+
+    .husky-tail {
+      width: 150px;
+      height: 8px;
+      box-shadow: 19px 10px 13px rgba(0, 0, 0, 0.3);
+      /*background-color: skyblue;*/
+      position: relative;
+    }
+
+    .unmove-tail {
+      top: -15px;
+      left: -145px;
+
+      width: 100px;
+      height: 30px;
+      position: absolute;
+
+      border-bottom-left-radius: 10%;
+    }
+
+
+    .moving-tail {
+      top: -15px;
+      left: -147px;
+      position: relative;
+      height: 30px;
+      transform-origin: right top;
+      /*perspective: 800px;*/
+    }
+
+    .tail1,
+    .tail2,
+    .tail3,
+    .tail4,
+    .tail5,
+    .tail6,
+    .tail7,
+    .tail8 {
+      transition: all, 1s;
+      /*过渡*/
+      border-bottom-right-radius: 70%;
+      width: 50px;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: -15px;
+
+      /*background-color: #3E3B4B;		*/
+      /*transform: translateX(-10px) rotate(30deg);*/
+      border-bottom-left-radius: 50%;
+    }
+
+    .tail8 {
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+
+    html:hover .tail1,
+    html:hover .tail2,
+    html:hover .tail3,
+    html:hover .tail4,
+    html:hover .tail5,
+    html:hover .tail6,
+    html:hover .tail7,
+    html:hover .tail8 {
+      animation: tail 2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s infinite;
+    }
+
+    html:hover .husky-head {
+      animation: head 3s infinite;
+    }
+
+    body:hover .eye1 .husky-eye1,
+    body:hover .eye2 .husky-eye2 {
+      animation: eye1 1.5s 3;
+    }
+
+    body:hover .eye2 .husky-eye2 {
+      animation: eye2 1.5s 3;
+    }
+
+    html:hover .husky-buttock div:nth-child(4) {
+      animation: body1 3s infinite;
+    }
+
+    html:hover .husky-buttock div:nth-child(5) {
+      /*animation: body2 3s infinite;*/
+    }
+
+    @keyframes body1 {
+      0% {
+        transform: rotate(43deg);
+      }
+
+      33% {
+        transform: rotate(45deg);
+      }
+
+      66% {
+        transform: rotate(40deg);
+      }
+
+      100% {
+        transform: rotate(43deg);
+      }
+    }
+
+    @keyframes body2 {
+      0% {
+        transform: translate(0);
+      }
+
+      33% {
+        transform: translate(4px);
+      }
+
+      66% {
+        transform: translate(3px);
+      }
+
+      100% {
+        transform: translate(0px);
+      }
+    }
+
+    @keyframes head {
+      0% {
+        transform: rotate(0);
+      }
+
+      33% {
+        transform: rotate(-0.5deg);
+      }
+
+      66% {
+        transform: rotate(0.5deg);
+      }
+
+      100% {
+        transform: rotate(0);
+      }
+    }
+
+    @keyframes eye1 {
+      0% {
+        transform: translate(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    @keyframes eye2 {
+      0% {
+        transform: translate(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    @keyframes tail {
+      0% {
+        transform: translateX(0) rotate(0);
+      }
+
+      50% {
+        transform: translateX(-2px) rotate(18deg);
+      }
+
+      100% {
+        transform: translateX(0) rotate(0);
+      }
+    }
+  </style>
+
 </head>
 
 <body>
-  <div>my name is renshfueng</div>
+  <!-- husky head -->
+  <div class="husky-head">
+    <div class="husky-ear1">
+      <div class="cochlear1"></div>
+    </div>
+    <div class="husky-ear2">
+      <div class="cochlear2"></div>
+    </div>
+    <div class="husky-face">
+      <div class="eye1">
+        <div class="husky-eye1"></div>
+      </div>
+      <div class="eye2">
+        <div class="husky-eye2"></div>
+      </div>
+      <div class="cheek">
+        <div class="husky-nose"></div>
+        <div class="husky-mouth">
+          <div class="husky-lips">
+            <div class="smile-lip">
+              <div class="left-lip1"></div>
+              <div class="right-lip1"></div>
+              <div class="husky-tongue"></div>
+            </div>
+            <div class="unsmile-lips">
+              <div class="left-lip2"></div>
+              <div class="right-lip2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- husky body -->
+  <div class="husky-body">
+    <div class="husky-scarf">
+      <div class="scarf1"></div>
+      <div class="scarf2"></div>
+      <div class="scarf3"></div>
+    </div>
+    <div class="husky-left-leg">
+      <div class="left-leg1"></div>
+      <div class="left-leg2"></div>
+    </div>
+    <div class="husky-right-leg">
+      <div class="right-leg1"></div>
+      <div class="right-leg2"></div>
+    </div>
+    <div class="husky-buttock">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="husky-Hind-leg">
+
+    </div>
+
+  </div>
+
+  <!--  husky tail -->
+  <div class="husky-tail">
+    <div class="unmove-tail"></div>
+    <div class="moving-tail">
+      <div class="tail1">
+        <div class="tail2">
+          <div class="tail3">
+            <div class="tail4">
+              <div class="tail5">
+                <div class="tail6">
+                  <div class="tail7">
+                    <div class="tail8"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
